@@ -7,10 +7,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: install-hugo
-      run: sudo snap install hugo
+      run: sudo snap install hugo --channel=extended
     - name: checkout
-      run: git clone --recursive -b admin https://github.com/nekoTheShadow/nekoTheShadow.github.io.git
+      run: |
+        cd $HOME
+        git clone --recursive -b admin https://github.com/nekoTheShadow/nekoTheShadow.github.io.git
+        mkdir -vp nekoTheShadow.github.io/public
+        cd nekoTheShadow.github.io/public
+        git clone -b master https://github.com/nekoTheShadow/nekoTheShadow.github.io.git
     - name: build
       run: |
-        cd nekoTheShadow.github.io
+        cd $HOME/nekoTheShadow.github.io
         hugo -v
+    - name: check
+      run: |
+        cd $HOME/nekoTheShadow.github.io/public
+        git status
