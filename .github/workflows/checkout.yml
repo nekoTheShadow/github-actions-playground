@@ -1,0 +1,14 @@
+name: checkout
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      run: |
+        set -x
+        cd $GITHUB_WORKSPACE
+        git clone https://nekoTheShadow:{{ secrets.GITHUB_TOKEN }}@github.com/nekoTheShadow/github-actions-playground
+        ls -la
