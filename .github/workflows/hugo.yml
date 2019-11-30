@@ -8,7 +8,9 @@ jobs:
     steps:
     - name: install-hugo
       run: sudo snap install hugo
-    - name: check
+    - name: checkout
+      run: git clone --recursive -b admin https://github.com/nekoTheShadow/nekoTheShadow.github.io.git
+    - name: build
       run: |
-        which hugo
-        hugo version
+        cd nekoTheShadow.github.io
+        hugo -v
