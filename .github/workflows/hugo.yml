@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: install-hugo
-      run: sudo apt-get install hugo
+      run: snap install hugo
     - name: check
       run: |
         which hugo
