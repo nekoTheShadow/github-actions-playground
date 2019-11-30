@@ -7,9 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: install-hugo
+      run: sudo apt-get install hugo
+    - name: check
       run: |
-        mkdir $HOME/src
-        cd $HOME/src
-        git clone https://github.com/gohugoio/hugo.git
-        cd hugo
-        go install --tags extended
+        which hugo
+        hugo version
