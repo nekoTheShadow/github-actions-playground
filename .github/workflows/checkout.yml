@@ -10,5 +10,5 @@ jobs:
       run: |
         set -x
         cd $GITHUB_WORKSPACE
-        git clone https://nekoTheShadow:{{ secrets.GITHUB_TOKEN }}@github.com/nekoTheShadow/github-actions-playground
+        git clone https://nekoTheShadow:${{ secrets.GITHUB_TOKEN }}@github.com/nekoTheShadow/github-actions-playground
         ls -la
